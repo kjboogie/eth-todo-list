@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "lite-server",
-    "test": "echo \"Error: no test specified\" && sexit 1"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Boogie",
   "license": "ISC",
@@ -17,9 +17,14 @@
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "chai-bignumber": "^2.0.2",
+    "eslint": "^5.16.0",
     "lite-server": "^2.3.0",
     "nodemon": "^1.17.3",
-    "truffle": "4.1.15",
-    "truffle-contract": "3.0.6"
+    "truffle": "5.0.2",
+    "truffle-contract": "3.0.6",
+    "web3": "0.20.6"
+  },
+  "dependencies": {
+    "web3": "0.20.6"
   }
 }
