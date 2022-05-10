@@ -7,7 +7,7 @@ App = {
   loading: false,
   contracts: {},
 
-    // here we will mention all the futions defined below to load
+    // here we will mention all the futions defined below to load when page is reloaded.
     load: async () => {
         //Load app...
        await App.loadWeb3()
@@ -134,6 +134,12 @@ App = {
     window.location.reload()
   },
 
+  toggleCompleted: async (e) => {
+    App.setLoading(true)
+    const taskID = e.target.name
+    await App.todoList.toggleCompleted(taskID)
+    window.location.reload()
+  },
     //function to display loading icon or content i.e. our todoList on UI 
     setLoading: (boolean) => {
       App.loading = boolean

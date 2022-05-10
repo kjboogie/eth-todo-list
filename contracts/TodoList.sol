@@ -26,15 +26,31 @@ contract TodoList {
   bool completed
   );
 
-  // constructor runs default whenever smartContract is deployed, So we aree adding some default tasks in Todo List
+  event taskCompleted(
+    uint id,
+    bool completed 
+    );
+
+  // constructor runs default whenever smartContract is deployed, So we ar      e adding some default tasks in Todo List
   constructor() public {
     createTask("Check Out Boogie");
   }
 
+  //function to create new task
   function createTask(string memory _content) public {
     tasksCount ++;
     tasks[tasksCount] = Task(tasksCount, _content, false);
     emit TaskCreated(tasksCount, _content, false);
+  }
+
+
+  // funtion to seperate completed task
+  function toggleCompleted(uint _id) public {
+    // read task out of mapping "tasks"
+    Task memory _task = tasks[_id];    
+    _task.completed = !_task.completed; // it changes complete status to false if true or vise-versa
+    tasks[_id] = _task;  // putting back task back to mapping
+    emit taskCompleted(_id, _task.completed);
   }
 
 }
