@@ -18,6 +18,14 @@ contract TodoList {
   //mapping in solidity is like associated array or hash in other programing languages. Key-Value pair.
   mapping(uint => Task) public tasks;
 
+  //we are creating an event so thaat we can trigger functions of our contract through blockchain.
+  // or blockchain can access our functions from contract
+  event TaskCreated(
+  uint id,
+  string content,
+  bool completed
+  );
+
   // constructor runs default whenever smartContract is deployed, So we aree adding some default tasks in Todo List
   constructor() public {
     createTask("Check Out Boogie");
@@ -25,7 +33,8 @@ contract TodoList {
 
   function createTask(string memory _content) public {
     tasksCount ++;
-    tasks[tasksCount] = Task(tasksCount,_content, false);
+    tasks[tasksCount] = Task(tasksCount, _content, false);
+    emit TaskCreated(tasksCount, _content, false);
   }
 
 }

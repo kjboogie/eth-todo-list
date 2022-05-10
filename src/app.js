@@ -14,6 +14,7 @@ App = {
        await App.loadAccount()
        await App.loadContract()
        await App.render()
+      //  web3.eth.defaultAccount = App.account
     },
     
     // Connection to the blockchain : Follow metamask connect to blockchain with Web3 documentation
@@ -53,7 +54,10 @@ App = {
     loadAccount: async () => {
       // Set the current blockchain account
       App.account = web3.eth.accounts[0];
-      console.log(App.account);
+      // web3.eth.defaultAccount = App.account;
+     web3.eth.defaultAccount=web3.eth.accounts[0];
+      //console.log(App.account);
+      console.log(web3.eth.defaultAccount);
     },
 
     //retrive the contracts
@@ -123,6 +127,12 @@ App = {
    
   },
 
+  createTasks: async () => {
+    App.setLoading(true)
+    const content = $('#newTask').val()
+   await App.todoList.createTask(content)
+    window.location.reload()
+  },
 
     //function to display loading icon or content i.e. our todoList on UI 
     setLoading: (boolean) => {
