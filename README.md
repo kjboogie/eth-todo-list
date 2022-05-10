@@ -1,6 +1,6 @@
 # eth-todo-list
 
-This is a simple Todo-List application on Blockchain using javascipt, Truffle and Ganache.
+#This is a simple Todo-List application on Blockchain using javascipt, Truffle and Ganache.
 You will find all the functions with details as comment written everywhere.
 
 Install ganache and open new workspace with port 8545. 
